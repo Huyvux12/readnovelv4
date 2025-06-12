@@ -1,0 +1,46 @@
+---
+layout: base.njk
+---
+
+<article class="chapter-page">
+    <header class="chapter-header">
+        <h1>{{ title }}</h1>
+        <div class="chapter-meta">
+            <time datetime="{{ date }}">{{ date | formatDate }}</time>
+        </div>
+    </header>
+
+    {% if toc %}
+    <nav class="table-of-contents">
+        <h2>Table of Contents</h2>
+        {{ toc | safe }}
+    </nav>
+    {% endif %}
+
+    <div class="chapter-content fade-in" data-aos="fade-up">
+        {{ content | safe }}
+    </div>
+
+    <nav class="chapter-navigation">
+        {% if previousChapter %}
+        <a href="{{ previousChapter.url }}" class="prev-chapter">
+            ← {{ previousChapter.data.title }}
+        </a>
+        {% endif %}
+        
+        <a href="{{ story.url }}" class="back-to-story">Back to Story</a>
+        
+        {% if nextChapter %}
+        <a href="{{ nextChapter.url }}" class="next-chapter">
+            {{ nextChapter.data.title }} →
+        </a>
+        {% endif %}
+    </nav>
+</article>
+
+<script>
+    // Add fade-in class to all paragraphs and headings
+    document.querySelectorAll('.chapter-content p, .chapter-content h1, .chapter-content h2, .chapter-content h3').forEach(element => {
+        element.classList.add('fade-in');
+    });
+</script> 

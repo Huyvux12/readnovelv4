@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+
+<article class="story-page">
+    <header class="story-header">
+        {% if coverImage %}
+        <img src="{{ coverImage }}" alt="{{ title }} cover" class="story-cover">
+        {% endif %}
+        <div class="story-info">
+            <h1>{{ title }}</h1>
+            <p class="story-description">{{ description }}</p>
+        </div>
+    </header>
+
+    <nav class="chapter-list">
+        <h2>Chapters</h2>
+        <ul>
+            {% for chapter in chapters %}
+            <li>
+                <a href="{{ chapter.url }}" {% if chapter.url == page.url %}class="active"{% endif %}>
+                    {{ chapter.data.title }}
+                </a>
+                <time datetime="{{ chapter.data.date }}">{{ chapter.data.date | formatDate }}</time>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</article> 

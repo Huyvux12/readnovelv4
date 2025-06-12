@@ -1,0 +1,50 @@
+---
+layout: base.njk
+title: Home
+description: Welcome to our collection of stories
+---
+
+<div class="search-container">
+    <input type="search" id="story-search" placeholder="Search stories..." aria-label="Search stories">
+</div>
+
+<div class="story-grid">
+    {% for story in collections.stories %}
+    <article class="story-card fade-in" data-aos="fade-up">
+        <a href="{{ story.url }}">
+            {% if story.data.coverImage %}
+            <img src="{{ story.data.coverImage }}" alt="{{ story.data.title }} cover" loading="lazy">
+            {% endif %}
+            <div class="story-card-content">
+                <h2>{{ story.data.title }}</h2>
+                <p class="story-description">{{ story.data.description }}</p>
+                <div class="story-meta">
+                    <span class="latest-chapter">Latest: {{ story.data.latestChapter }}</span>
+                    <time datetime="{{ story.data.date }}">{{ story.data.date | formatDate }}</time>
+                </div>
+            </div>
+        </a>
+    </article>
+    {% endfor %}
+</div>
+
+<script>
+    // Search functionality
+    const searchInput = document.getElementById('story-search');
+    const storyCards = document.querySelectorAll('.story-card');
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        
+        storyCards.forEach(card => {
+            const title = card.querySelector('h2').textContent.toLowerCase();
+            const description = card.querySelector('.story-description').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script> 
