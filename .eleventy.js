@@ -40,7 +40,7 @@ module.exports = function(eleventyConfig) {
       input: 'src',
       output: '_site',
       includes: '_includes',
-      layouts: '_layouts'
+      layouts: '_includes'
     },
     templateFormats: ['md', 'njk', 'html'],
     markdownTemplateEngine: 'njk',
