@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Novel Reader</title>
+    <meta name="description" content="Welcome to our collection of stories">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="Welcome to our collection of stories">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- AOS library for fade-in effects -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="/" class="logo">Novel Reader</a>
+                <div class="nav-controls">
+                    <button id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            
+<div class="search-container">
+    <input type="search" id="story-search" placeholder="Search stories..." aria-label="Search stories">
+</div>
+
+<div class="story-grid">
+    
+    <article class="story-card fade-in" data-aos="fade-up">
+        <a href="/stories/dragon-warrior/chapter-1/">
+            
+            <div class="story-card-content">
+                <h2>Chương 1: Khởi đầu</h2>
+                <p class="story-description"></p>
+                <div class="story-meta">
+                    <span class="latest-chapter">Latest: </span>
+                    
+                    <time datetime="Wed Mar 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">March 20, 2024</time>
+                    
+                </div>
+            </div>
+        </a>
+    </article>
+    
+    <article class="story-card fade-in" data-aos="fade-up">
+        <a href="/stories/dragon-warrior/">
+            
+            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=800" alt="Dragon Warrior cover" loading="lazy">
+            
+            <div class="story-card-content">
+                <h2>Dragon Warrior</h2>
+                <p class="story-description">Câu chuyện về một chiến binh rồng trẻ tuổi trên hành trình tìm kiếm sức mạnh và danh dự</p>
+                <div class="story-meta">
+                    <span class="latest-chapter">Latest: </span>
+                    
+                    <time datetime="Wed Mar 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">March 20, 2024</time>
+                    
+                </div>
+            </div>
+        </a>
+    </article>
+    
+    <article class="story-card fade-in" data-aos="fade-up">
+        <a href="/stories/dragon-warrior/chapter-2/">
+            
+            <div class="story-card-content">
+                <h2>Chương 2: Sức mạnh tiềm ẩn</h2>
+                <p class="story-description"></p>
+                <div class="story-meta">
+                    <span class="latest-chapter">Latest: </span>
+                    
+                    <time datetime="Thu Mar 21 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">March 21, 2024</time>
+                    
+                </div>
+            </div>
+        </a>
+    </article>
+    
+</div>
+
+<script>
+    // Search functionality
+    const searchInput = document.getElementById('story-search');
+    const storyCards = document.querySelectorAll('.story-card');
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        
+        storyCards.forEach(card => {
+            const title = card.querySelector('h2').textContent.toLowerCase();
+            const description = card.querySelector('.story-description').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script> 
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; Novel Reader 2024</p>
+        </div>
+    </footer>
+
+    <!-- Typography controls -->
+    <div class="typography-controls">
+        <label for="font-size">Font Size</label>
+        <input type="range" id="font-size" min="0.8" max="1.4" step="0.1" value="1">
+        
+        <label for="line-height">Line Height</label>
+        <input type="range" id="line-height" min="1.2" max="2" step="0.1" value="1.6">
+        
+        <label for="font-family">Font</label>
+        <select id="font-family">
+            <option value="sans">Sans-serif</option>
+            <option value="serif">Serif</option>
+        </select>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 
