@@ -20,7 +20,9 @@ description: Welcome to our collection of stories
                 <p class="story-description">{{ story.data.description }}</p>
                 <div class="story-meta">
                     <span class="latest-chapter">Latest: {{ story.data.latestChapter }}</span>
+                    {% if story.data.date %}
                     <time datetime="{{ story.data.date }}">{{ story.data.date | formatDate }}</time>
+                    {% endif %}
                 </div>
             </div>
         </a>

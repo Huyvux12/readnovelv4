@@ -21,7 +21,9 @@ layout: base.njk
                 <a href="{{ chapter.url }}" {% if chapter.url == page.url %}class="active"{% endif %}>
                     {{ chapter.data.title }}
                 </a>
+                {% if chapter.data.date %}
                 <time datetime="{{ chapter.data.date }}">{{ chapter.data.date | formatDate }}</time>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>
